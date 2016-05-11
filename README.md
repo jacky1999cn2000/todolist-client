@@ -233,4 +233,24 @@
  ```
 
 ### immutable-js
-[React ImmutablePropTypes](https://www.npmjs.com/package/react-immutable-proptypes)
+ * 要注意语法细节
+ ```javascript
+   // todos is an immutable list, and each item in it is an immutable map
+   return todos.filter(t => t.get('completed'))
+
+   // todos is an array, and each item in it is a plain javascript object
+   return todos.filter(t => t.completed)
+ ```
+ * [React ImmutablePropTypes](https://www.npmjs.com/package/react-immutable-proptypes)
+ ```javascript
+   TodoList.propTypes = {
+     todos: ImmutablePropTypes.listOf(
+       ImmutablePropTypes.contains({
+         id: React.PropTypes.string.isRequired,
+         text: React.PropTypes.string.isRequired,
+         completed: React.PropTypes.bool.isRequired
+       })
+     ).isRequired,
+     onTodoClick: PropTypes.func.isRequired
+   }
+ ```
