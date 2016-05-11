@@ -31,21 +31,3 @@ let AddTodo = ({ dispatch }) => {
 AddTodo = connect()(AddTodo)
 
 export default AddTodo
-
-/*
-AddTodo = connect(
-  state => {
-    return {};
-  },
-  dispatch => {
-    return { dispatch }
-  }
-})(AddTodo)
-
-AddTodo = connect(
-  null,
-  null
-})(AddTodo)
-
-AddTodo = connect()(AddTodo)
-*/

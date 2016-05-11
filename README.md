@@ -139,6 +139,88 @@
       mapDispathToProps
     )(TodoList)
     ```
+### components
+
+ * AddTodo
+   * 即是普通component也是container component,它用了connect()自己渲染了自己(所以它用了let而不是const)
+   ```javascript
+   let AddTodo = ({ dispatch }) => {
+     let input
+
+     return (
+       <div>
+         <form onSubmit={e => {
+           e.preventDefault()
+           if(!input.value.trim()){
+             return
+           }
+           dispatch(addTodo(input.value))
+           input.value = ''
+         }}>
+           <input ref={node => {
+             input = node
+           }} />
+           <button type='submit'>
+             Add Todo
+           </button>
+         </form>
+       </div>
+     )
+   }
+
+   AddTodo = connect()(AddTodo)
+
+   export default AddTodo
+   ```
+   * 这是AddTodo的connect()的进化史
+   ```javascript
+   //v1
+   AddTodo = connect(
+     state => {
+       return {};
+     },
+     dispatch => {
+       return { dispatch }
+     }
+   })(AddTodo)
+
+   //v2
+   AddTodo = connect(
+     null,
+     null
+   })(AddTodo)
+
+   //v3
+   AddTodo = connect()(AddTodo)
+   ```
+ * Link
+   * children是tag中间的内容
+   ```javascript
+   const Link = ({ active, children, onClick }) => {
+     ...
+   }
+   ```
+ * FilterLink
+   * ownProps - 在container component里面,mapStateToProps和mapDispatchToProps两个函数的第二个参数可以是ownProps - 如果这个container component从自己的父component那里接受props的话
+   ```javascript
+   const mapStateToProps = (state, ownProps) => {
+     return {
+       active: ownProps.filter === state.visibilityFilter
+     }
+   }
+
+   const mapDispatchToProps = (dispatch, ownProps) => {
+     return {
+       onClick: () => {
+         dispatch(setVisibilityFilter(ownProps.filter))
+       }
+     }
+   }
+   ```
+### async action & middleware
+
+[Thunk Middleware 一个很好的解释](http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559)
+[From Flux to Redux: Async Actions the easy way](http://danmaz74.me/2015/08/19/from-flux-to-redux-async-actions-the-easy-way/)
 
 ### testing
  * 安装mocha,chai,chai-immutable
