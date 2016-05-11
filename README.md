@@ -114,7 +114,7 @@
     * mapStateToProps - 最新的state作为参数,返回值是要传递给普通component(此例中是TodoList)的data props
     * mapDispathToProps - store的dispatch函数作为参数,返回值是要传递给普通component(此例中是TodoList)的function props
     * 每一次store变化后(比如此例里面TodoList的某一个Todo被点击时调用由VisibleTodoList通过props传递下来的onTodoClick()函数,dispatch了一个toggleTodo的action,造成store变化),container component都会重新计算和刷新子components
-    * 还有一个好处就是[](http://redux.js.org/docs/basics/UsageWithReact.html)
+    * 还有一个好处就是[不用考虑优化问题,react会自己处理(immutable带来的好处)](http://redux.js.org/docs/basics/UsageWithReact.html)
 
     > You could write a container component by hand, but we suggest instead generating container components with the React Redux library’s connect() function, which provides many useful optimizations to prevent unnecessary re-renders. (One result of this is that you shouldn’t have to worry about the React performance suggestion of implementing shouldComponentUpdate yourself.
 
