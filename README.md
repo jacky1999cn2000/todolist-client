@@ -2,9 +2,9 @@
 
 这个项目主要是参照[Redux Todo List](http://redux.js.org/docs/basics/ExampleTodoList.html)做的一个针对redux的练习,但是结合了下面这些东西:
 
-[Immutable JS](https://facebook.github.io/immutable-js)
-[redux with immutable & mocha & chai & chai-immutable](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
-[AWS API Gateway](another github link)
+ * [Immutable JS](https://facebook.github.io/immutable-js)
+ * [redux with immutable & mocha & chai & chai-immutable](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
+ * [AWS API Gateway](another github link)
 
 ### actions
 
@@ -115,8 +115,9 @@
     * mapDispathToProps - store的dispatch函数作为参数,返回值是要传递给普通component(此例中是TodoList)的function props
     * 每一次store变化后(比如此例里面TodoList的某一个Todo被点击时调用由VisibleTodoList通过props传递下来的onTodoClick()函数,dispatch了一个toggleTodo的action,造成store变化),container component都会重新计算和刷新子components
     * 还有一个好处就是[](http://redux.js.org/docs/basics/UsageWithReact.html)
+
     > You could write a container component by hand, but we suggest instead generating container components with the React Redux library’s connect() function, which provides many useful optimizations to prevent unnecessary re-renders. (One result of this is that you shouldn’t have to worry about the React performance suggestion of implementing shouldComponentUpdate yourself.
-    
+
     ```javascript
     // [PROJECT-ROOT]/app/containers/VisibleTodoList.js
     const mapStateToProps = (state) => {
