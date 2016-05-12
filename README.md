@@ -221,6 +221,7 @@
 
 [Thunk Middleware 一个很好的解释](http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559)
 [From Flux to Redux: Async Actions the easy way](http://danmaz74.me/2015/08/19/from-flux-to-redux-async-actions-the-easy-way/)
+[search for 'The typical flow for retrieving data from a remote server would look like this:'](https://www.reddit.com/r/reactjs/comments/3gplr2/how_do_you_guys_fetch_data_for_a_react_app_fully/)\
 
 ### testing
  * 安装mocha,chai,chai-immutable
