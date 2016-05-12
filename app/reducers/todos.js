@@ -22,6 +22,8 @@ const todo = (state, action) => {
 
 const todos = (state=List(), action) => {
   switch (action.type) {
+    case 'LOAD_TODOS':
+      return fromJS(action.todos);
     case 'ADD_TODO':
       return state.push(todo(undefined, action));
     case 'TOGGLE_TODO':
