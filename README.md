@@ -219,10 +219,10 @@
    ```
 ### async action & middleware
 
- * 当App加载时,从server那里load todos
-     * 首先把App.js改写成一个container component(high order component, a.k.a. HoC),这样它能够在自己内部使用dispatch函数
-     * 在componentDidMount里面通过`this.props.dispatch(getTodos());`来dispatch一个getTodos()的action
-     * getTodos()是一个async action,返回一个即将由middleware处理的function.这个function内部可以有side effect,比如访问网络,然后等从server取回todos后再dispatch另一个叫做loadTodos()的常规action,这个action会被reducer处理,更新store.
+* 当App加载时,从server那里load todos
+   * 首先把App.js改写成一个container component(high order component, a.k.a. HoC),这样它能够在自己内部使用dispatch函数
+   * 在componentDidMount里面通过`this.props.dispatch(getTodos());`来dispatch一个getTodos()的action
+   * getTodos()是一个async action,返回一个即将由middleware处理的function.这个function内部可以有side effect,比如访问网络,然后等从server取回todos后再dispatch另一个叫做loadTodos()的常规action,这个action会被reducer处理,更新store.
    ```javascript
    // actions
 
@@ -328,11 +328,11 @@
    ```
 
 
- * 关于async call的一些资料
-   * [Thunk Middleware 一个很好的解释](http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559)
-   * [From Flux to Redux: Async Actions the easy way](http://danmaz74.me/2015/08/19/from-flux-to-redux-async-actions-the-easy-way/)
-   * [search for 'The typical flow for retrieving data from a remote server would look like this:'](https://www.reddit.com/r/reactjs/comments/3gplr2/how_do_you_guys_fetch_data_for_a_react_app_fully/)\
-   * [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
+* 关于async call的一些资料
+  * [Thunk Middleware 一个很好的解释](http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559)
+  * [From Flux to Redux: Async Actions the easy way](http://danmaz74.me/2015/08/19/from-flux-to-redux-async-actions-the-easy-way/)
+  * [search for 'The typical flow for retrieving data from a remote server would look like this:'](https://www.reddit.com/r/reactjs/comments/3gplr2/how_do_you_guys_fetch_data_for_a_react_app_fully/)\
+  * [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
 
    > The statement `require('es6-promise').polyfill()` is not an import but rather a global function call intended to have global side effects. I'm pretty sure es6 module syntax did not consider this corner case worth optimizing for number of characters typed.    
 
