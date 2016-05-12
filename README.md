@@ -220,9 +220,9 @@
 ### async action & middleware
 
  * 当App加载时,从server那里load todos
-   * 首先把App.js改写成一个container component(high order component, a.k.a. HoC),这样它能够在自己内部使用dispatch函数
-   * 在componentDidMount里面通过`this.props.dispatch(getTodos());`来dispatch一个getTodos()的action
-   * getTodos()是一个async action,返回一个即将由middleware处理的function.这个function内部可以有side effect,比如访问网络,然后等从server取回todos后再dispatch另一个叫做loadTodos()的常规action,这个action会被reducer处理,更新store.
+     * 首先把App.js改写成一个container component(high order component, a.k.a. HoC),这样它能够在自己内部使用dispatch函数
+     * 在componentDidMount里面通过`this.props.dispatch(getTodos());`来dispatch一个getTodos()的action
+     * getTodos()是一个async action,返回一个即将由middleware处理的function.这个function内部可以有side effect,比如访问网络,然后等从server取回todos后再dispatch另一个叫做loadTodos()的常规action,这个action会被reducer处理,更新store.
    ```javascript
    // actions
 
