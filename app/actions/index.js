@@ -1,10 +1,11 @@
 'use strict';
 
-import uuid from 'node-uuid';
+import uuid from 'node-uuid'
+import { TYPES } from './types.js'
 
 export const addTodo = (text) => {
   return {
-    type: 'ADD_TODO',
+    type: TYPES.ADD_TODO,
     id: uuid.v1(),
     text
   };
@@ -12,14 +13,14 @@ export const addTodo = (text) => {
 
 export const setVisibilityFilter = (filter) => {
   return {
-    type: 'SET_VISIBILITY_FILTER',
+    type: TYPES.SET_VISIBILITY_FILTER,
     filter
   };
 }
 
 export const toggleTodo = (id) => {
   return {
-    type: 'TOGGLE_TODO',
+    type: TYPES.TOGGLE_TODO,
     id
   };
 }

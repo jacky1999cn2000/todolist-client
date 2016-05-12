@@ -24,7 +24,7 @@ describe('todos reducer:', () => {
       let state = undefined;
       let action = {
         type: 'ADD_TODO',
-        id: 1,
+        id: '1',
         text: 'todo item 1'
       };
 
@@ -32,7 +32,7 @@ describe('todos reducer:', () => {
 
       let expectedNextState = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         }
@@ -45,14 +45,14 @@ describe('todos reducer:', () => {
     it('will add designated item into the current list in state', () => {
       let state = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         }
       ]);
       let action = {
         type: 'ADD_TODO',
-        id: 2,
+        id: '2',
         text: 'todo item 2'
       };
 
@@ -60,19 +60,19 @@ describe('todos reducer:', () => {
 
       let expectedState = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         }
       ]);
       let expectedNextState = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         },
         {
-          id: 2,
+          id: '2',
           text: 'todo item 2',
           completed: false
         }
@@ -88,31 +88,31 @@ describe('todos reducer:', () => {
     it('will toggle the \'completed\' attribute for corresponding todo item', () => {
       let state = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         },
         {
-          id: 2,
+          id: '2',
           text: 'todo item 2',
           completed: false
         }
       ]);
       let action = {
         type: 'TOGGLE_TODO',
-        id: 1
+        id: '1'
       };
-      
+
       let nextState = todos(state, action);
 
       let expectedState = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: false
         },
         {
-          id: 2,
+          id: '2',
           text: 'todo item 2',
           completed: false
         }
@@ -120,12 +120,12 @@ describe('todos reducer:', () => {
 
       let expectedNextState = fromJS([
         {
-          id: 1,
+          id: '1',
           text: 'todo item 1',
           completed: true
         },
         {
-          id: 2,
+          id: '2',
           text: 'todo item 2',
           completed: false
         }

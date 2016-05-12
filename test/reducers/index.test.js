@@ -24,7 +24,7 @@ describe('todoApp reducer:', () => {
       let state = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           }
@@ -33,7 +33,7 @@ describe('todoApp reducer:', () => {
       };
       let action = {
         type: 'ADD_TODO',
-        id: 2,
+        id: '2',
         text: 'todo item 2'
       };
 
@@ -42,7 +42,7 @@ describe('todoApp reducer:', () => {
       let expectedState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           }
@@ -52,12 +52,12 @@ describe('todoApp reducer:', () => {
       let expectedNextState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           },
           {
-            id: 2,
+            id: '2',
             text: 'todo item 2',
             completed: false
           }
@@ -75,12 +75,12 @@ describe('todoApp reducer:', () => {
       let state = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           },
           {
-            id: 2,
+            id: '2',
             text: 'todo item 2',
             completed: false
           }
@@ -89,7 +89,7 @@ describe('todoApp reducer:', () => {
       };
       let action = {
         type: 'TOGGLE_TODO',
-        id: 2
+        id: '2'
       };
 
       let nextState = todoApp(state, action);
@@ -97,12 +97,12 @@ describe('todoApp reducer:', () => {
       let expectedState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           },
           {
-            id: 2,
+            id: '2',
             text: 'todo item 2',
             completed: false
           }
@@ -112,12 +112,12 @@ describe('todoApp reducer:', () => {
       let expectedNextState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           },
           {
-            id: 2,
+            id: '2',
             text: 'todo item 2',
             completed: true
           }
@@ -135,7 +135,7 @@ describe('todoApp reducer:', () => {
       let state = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           }
@@ -152,7 +152,7 @@ describe('todoApp reducer:', () => {
       let expectedState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           }
@@ -162,7 +162,7 @@ describe('todoApp reducer:', () => {
       let expectedNextState = {
         todos: fromJS([
           {
-            id: 1,
+            id: '1',
             text: 'todo item 1',
             completed: false
           }
