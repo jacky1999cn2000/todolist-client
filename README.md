@@ -336,6 +336,20 @@
 
    > The statement `require('es6-promise').polyfill()` is not an import but rather a global function call intended to have global side effects. I'm pretty sure es6 module syntax did not consider this corner case worth optimizing for number of characters typed.    
 
+### redux state 和 component state
+
+ 总体来说redux state是管理整个App都要用的data(state tree),而某个component内部可以有自己的state.
+
+ 将所有data都放在redux state里面的好处是所有的component都只是渲染而已,测试和time travel debugging就方便了许多,但这样的话redux state tree会比较复杂;
+
+ 一般情况下把那些可能好多component都会用到的data放在redux state tree里面然后通过dispatch action来改变,而在component内部用一些state来控制ui等等.当然,如果某个控制ui的state需要persistent(页面刷新后保持,见下面链接),也可以放在redux state里面然后保存在local storage里.
+
+ redux state每次更新后,container component(High Order Component)都会更新自己的自己的子components,同时新的props会传到`componentWillReceiveProps(nextProps)`里,所以在这里可以做一些判断和处理,比如和setState()互动(见下面链接)
+
+ * [ui state vs app state](https://www.reddit.com/r/reactjs/comments/3ogz52/using_setstate_with_redux/)
+ * [local state vs global state](https://www.reddit.com/r/reactjs/comments/3mpc0e/when_using_redux_when_should_react_components_use/)
+ * [what data should be put in redux state tree](http://stackoverflow.com/questions/34711477/should-you-ever-use-this-setstate-when-using-redux)
+ * [how to make a React component setState() based on a Redux state change](http://stackoverflow.com/questions/35285261/how-to-make-a-react-component-setstate-based-on-a-redux-state-change)
 
 ### testing
  * 安装mocha,chai,chai-immutable
