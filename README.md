@@ -2,9 +2,10 @@
 
 这个项目主要是参照[Redux Todo List](http://redux.js.org/docs/basics/ExampleTodoList.html)做的一个针对redux的练习,但是结合了下面这些东西:
 
- * [Immutable JS](https://facebook.github.io/immutable-js)
- * [redux with immutable & mocha & chai & chai-immutable](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
- * [AWS API Gateway](another github link)
+* [Immutable JS](https://facebook.github.io/immutable-js)
+* [redux with immutable & mocha & chai & chai-immutable](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html)
+
+* [服务器端需要运行这个项目](https://github.com/jacky1999cn2000/todolist-server)
 
 ### actions
 
